@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+
+@import "primeicons/primeicons.css";
+
+.respon{
+    // min-height: 72vh;
+    max-height: 100vh;
+    height: 88vh;
+    // background-color: red;
+}
+
+.custom-border {
+    border: 2px solid red; /* Cambia el color y el grosor según sea necesario */
+    border-radius: 8px; /* Opcional: para bordes redondeados */
+}
+
+
+.custom-file-upload {
+    background-color: transparent;
+}
+
+.custom-file-upload input {
+    display: none; /* Oculta el input original */
+}
