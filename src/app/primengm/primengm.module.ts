@@ -13,7 +13,9 @@ import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { FileUploadModule } from 'primeng/fileupload';
 import { MessageService } from 'primeng/api';
-
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { TooltipModule } from 'primeng/tooltip';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
 
 @NgModule({
   declarations: [],
@@ -29,7 +31,10 @@ import { MessageService } from 'primeng/api';
     SliderModule,
     IconFieldModule,
     InputIconModule,
-    FileUploadModule
+    FileUploadModule,
+    RadioButtonModule,
+    TooltipModule,
+    OverlayPanelModule
   ],
   providers: [
     MessageService

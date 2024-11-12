@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-import { MessageService } from 'primeng/api';
+import { MessageService, TooltipOptions } from 'primeng/api';
 import { FileUpload, FileSelectEvent } from 'primeng/fileupload';
 
 interface UploadEvent {
@@ -22,6 +22,7 @@ export class AppComponent {
   qrIcon: string = "";
   imageSrc: string | ArrayBuffer | null | undefined = "";
   imageTitle: string = "algo ok.png";
+  ingredient!: string;
 
 
   constructor(private messageService: MessageService, private sanitizer: DomSanitizer) { }
@@ -39,11 +40,10 @@ export class AppComponent {
     }
   }
 
-  onclick(): void {
-    console.log("cliked");
-  }
-  onchange(): void {
-    console.log("change");
-  }
-
+  tooltipOptions:TooltipOptions = {
+    showDelay: 150,
+    
+    tooltipEvent: 'hover',
+    tooltipPosition: 'left'
+};
 }

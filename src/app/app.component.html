@@ -1,3 +1,9 @@
+<!-- <div class="flex align-items-center justify-content-center flex-row flex-wrap bg-primary h-screen p-0 m-0">
+    <div class="flex align-items-center justify-content-center col-1 h-4rem rado  font-bold border-round">2</div>
+    <div class="flex align-items-center justify-content-center w-1 h-4rem rado font-bold border-round">2</div>
+    <div class="flex align-items-center justify-content-center w-1 h-4rem rado font-bold border-round">2</div>
+</div> -->
+
 <div class="grid">
     <div class="col-12 md:col-6 h-30rem">
         <app-qr-card-component [qrData]="qrData" [qrColor]="qrColor" [logoUrl]="imageSrc || ''" />
@@ -23,10 +29,44 @@
                                 chooseIcon="pi pi-upload" accept="image/*" maxFileSize="1000000" [auto]="true"
                                 (onSelect)="onUpload($event, fileUpload)" />
                         </div>
-                        <div class="col-9 offset"><span>{{imageTitle}}</span></div>
+                        <div class="col-9 offset"><h3>{{imageTitle}}</h3></div>
                     </div>
                 </div>
                 <hr>
+                <div class="field grid">
+                    <div class="col">
+                        <h4 class="mb-1">ErrorCorrectionLevel
+                            <p-button (onClick)="op.toggle($event)" icon="pi pi-bookmark" [rounded]="true"  size="small"/>
+                        </h4>
+                        <div class="flex flex-wrap gap-3">
+                            <div class="flex align-items-center">
+                                <p-radioButton name="pizza" value="Cheese" [(ngModel)]="ingredient" inputId="lower" />
+                                <label for="lower" class="ml-2 pointer_cursor">
+                                    Lower
+                                </label>
+                            </div>
+                            <div class="flex align-items-center">
+                                <p-radioButton name="pizza" value="Mushroom" [(ngModel)]="ingredient"
+                                    inputId="medium" />
+                                <label for="medium" class="ml-2 pointer_cursor">
+                                    Medium
+                                </label>
+                            </div>
+                            <div class="flex align-items-center">
+                                <p-radioButton name="pizza" value="Pepper" [(ngModel)]="ingredient" inputId="quartil" />
+                                <label for="quartil" class="ml-2 pointer_cursor">
+                                    Quartil
+                                </label>
+                            </div>
+                            <div class="flex align-items-center">
+                                <p-radioButton name="pizza" value="Onion" [(ngModel)]="ingredient" inputId="high" />
+                                <label for="high" class="ml-2 pointer_cursor">
+                                    High
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="field grid">
                     <div class="col">
                         <h4 style="padding: 0;margin: 0;">QR Color</h4>
@@ -37,3 +77,12 @@
         </p-card>
     </div>
 </div>
+
+<p-overlayPanel #op>
+    <div class="flex flex-column gap-3 w-25rem">
+        <div class="p-3">
+            se refiere a la capacidad del código para seguir siendo legible incluso si está dañado o parcialmente
+            cubierto.
+        </div>
+    </div>
+</p-overlayPanel>
