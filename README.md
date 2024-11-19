@@ -1,3 +1,14 @@
+#QR generator
+
+Technologies
+- [angularx-qrcode](https://cordobo.github.io/angularx-qrcode)
+- Primeflex
+- Primeng
+- Angular 18
+
+
+
+
 # Generatroqrng
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.6.
