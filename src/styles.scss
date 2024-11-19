@@ -9,7 +9,7 @@
 }
 
 .custom-border {
-    border: 2px solid red; /* Cambia el color y el grosor según sea necesario */
+    // border: 2px solid red; /* Cambia el color y el grosor según sea necesario */
     border-radius: 8px; /* Opcional: para bordes redondeados */
 }
 
@@ -20,4 +20,8 @@
 
 .custom-file-upload input {
     display: none; /* Oculta el input original */
+}
+
+.bgll{
+    background-color: green;
 }

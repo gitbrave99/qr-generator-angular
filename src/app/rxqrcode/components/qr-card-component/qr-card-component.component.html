@@ -1,10 +1,12 @@
-<p-card header="QR Code Generated" [style]="{'text-align': 'center'}" [styleClass]="'respon custom-border'" >
+<p-card header="QR Code Generator" [style]="{'text-align': 'center'}" [styleClass]="'respon custom-border'" >
     <div class="flex flex-column flex-wrap">
         <div class="flex align-items-center justify-content-center">
-            <qrcode [qrdata]="qrData" [width]="200" [errorCorrectionLevel]="'M'" [colorDark]="qrColor"
+            <qrcode [qrdata]="qrData" [width]="250" [errorCorrectionLevel]="errCorrLevel" [colorDark]="qrColor"
             [elementType]="'canvas'"
             [imageSrc]="getUrlLogo()"
-            (qrCodeURL)="onChangeURL($event)"></qrcode>
+            (qrCodeURL)="onChangeURL($event)"
+            [allowEmptyString]="true">
+        </qrcode>
         </div>
         <div class="flex align-items-center justify-content-center " >
             <a class="p-button font-bold" [href]="qrCodeDownloadLink" download="qrcode">Download</a>

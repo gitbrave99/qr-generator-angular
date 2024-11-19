@@ -1,16 +1,19 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { SafeUrl } from '@angular/platform-browser';
+import { QRCodeErrorCorrectionLevel } from 'angularx-qrcode';
 
 @Component({
   selector: 'app-qr-card-component',
   templateUrl: './qr-card-component.component.html',
-  styleUrl: './qr-card-component.component.scss'
+  styleUrls: ['./qr-card-component.component.scss']
 })
-export class QrCardComponentComponent {
+export class QrCardComponentComponent implements OnChanges {
 
-  @Input() qrData: string = 'www.facebook.com';
+
+  @Input() qrData: string = 'por default';
   @Input() logoUrl: string | ArrayBuffer | null | undefined = '';
   @Input() qrColor: string = '';
+  @Input() errCorrLevel: QRCodeErrorCorrectionLevel = 'M';
   public qrCodeDownloadLink: SafeUrl = "";
 
   onChangeURL(url: SafeUrl) {
@@ -24,5 +27,13 @@ export class QrCardComponentComponent {
     }
     return this.logoUrl?.toString()||"";
   }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log("changes: ",changes['errCorrLevel']);
+    
+  }
+
+  
+  
   
 }

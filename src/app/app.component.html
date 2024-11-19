@@ -5,18 +5,20 @@
 </div> -->
 
 <div class="grid">
-    <div class="col-12 md:col-6 h-30rem">
-        <app-qr-card-component [qrData]="qrData" [qrColor]="qrColor" [logoUrl]="imageSrc || ''" />
+    <div class="col-12 md:col-6 h-25rem">
+        <app-qr-card-component [qrData]="myForm.get('data')?.value" 
+        [qrColor]="myForm.get('color')?.value" 
+        [logoUrl]="imageSrc || ''" [errCorrLevel]="myForm.get('errCorrLevel')?.value" />
     </div>
     <div class="col-12 md:col-6">
         <p-card header="Configuration" [styleClass]="'respon custom-border'">
-            <form action="">
+            <form action="" [formGroup]="myForm" (ngSubmit)="onSubmit()">
                 <div class="field grid">
                     <div class="col-12">
                         <h4 class="mb-1">Data</h4>
                         <p-iconField iconPosition="left">
-                            <p-inputIcon styleClass="pi pi-search" />
-                            <input type="text" style="width: 100%;" pInputText placeholder="Search" />
+                            <p-inputIcon styleClass="pi pi-search"/>
+                            <input type="text" style="width: 100%;" formControlName="data" pInputText placeholder="Search" />
                         </p-iconField>
                     </div>
                 </div>
@@ -24,42 +26,42 @@
                 <div class="field">
                     <h4 class="mb-1">Logo</h4>
                     <div class="grid grid-nogutter">
-                        <div class="col-3">
+                        <div class="col-5 md:col-4 lg:col-3 flex align-items-center justify-content-start">
                             <p-fileUpload #fileUpload mode="basic" multiple="false" chooseLabel="Choose"
                                 chooseIcon="pi pi-upload" accept="image/*" maxFileSize="1000000" [auto]="true"
                                 (onSelect)="onUpload($event, fileUpload)" />
                         </div>
-                        <div class="col-9 offset"><h3>{{imageTitle}}</h3></div>
+                        <div class="col-4  md:col-8 lg:col-9 flex align-items-center justify-content-start"><h3>{{imageTitle}}</h3></div>
                     </div>
                 </div>
                 <hr>
                 <div class="field grid">
                     <div class="col">
                         <h4 class="mb-1">ErrorCorrectionLevel
-                            <p-button (onClick)="op.toggle($event)" icon="pi pi-bookmark" [rounded]="true"  size="small"/>
+                            <!-- <p-button (onClick)="op.toggle($event)" icon="pi pi-bookmark" [rounded]="true"  size="small"/> -->
                         </h4>
                         <div class="flex flex-wrap gap-3">
                             <div class="flex align-items-center">
-                                <p-radioButton name="pizza" value="Cheese" [(ngModel)]="ingredient" inputId="lower" />
+                                <p-radioButton value="L" formControlName="errCorrLevel" inputId="lower" />
                                 <label for="lower" class="ml-2 pointer_cursor">
                                     Lower
                                 </label>
                             </div>
                             <div class="flex align-items-center">
-                                <p-radioButton name="pizza" value="Mushroom" [(ngModel)]="ingredient"
+                                <p-radioButton value="M" formControlName="errCorrLevel" 
                                     inputId="medium" />
                                 <label for="medium" class="ml-2 pointer_cursor">
-                                    Medium
+                                    Medium(Default)
                                 </label>
                             </div>
                             <div class="flex align-items-center">
-                                <p-radioButton name="pizza" value="Pepper" [(ngModel)]="ingredient" inputId="quartil" />
+                                <p-radioButton value="Q" formControlName="errCorrLevel" inputId="quartil" />
                                 <label for="quartil" class="ml-2 pointer_cursor">
                                     Quartil
                                 </label>
                             </div>
                             <div class="flex align-items-center">
-                                <p-radioButton name="pizza" value="Onion" [(ngModel)]="ingredient" inputId="high" />
+                                <p-radioButton value="H" formControlName="errCorrLevel" inputId="high" />
                                 <label for="high" class="ml-2 pointer_cursor">
                                     High
                                 </label>
@@ -70,19 +72,17 @@
                 <div class="field grid">
                     <div class="col">
                         <h4 style="padding: 0;margin: 0;">QR Color</h4>
-                        <input type="color" [(ngModel)]="qrColor" name="qrColor">
+                        <input type="color" formControlName="color" name="qrColor">
                     </div>
                 </div>
+                <!-- <div class="field grid">
+                    <div class="col">
+                        <p-button type="submit" label="Submit" icon="pi pi-check" />
+                    </div>
+                </div> -->
             </form>
         </p-card>
     </div>
 </div>
 
-<p-overlayPanel #op>
-    <div class="flex flex-column gap-3 w-25rem">
-        <div class="p-3">
-            se refiere a la capacidad del código para seguir siendo legible incluso si está dañado o parcialmente
-            cubierto.
-        </div>
-    </div>
-</p-overlayPanel>
+<!-- {{myForm.value|json}} -->

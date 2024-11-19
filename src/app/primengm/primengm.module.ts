@@ -16,6 +16,8 @@ import { MessageService } from 'primeng/api';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { TooltipModule } from 'primeng/tooltip';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
+import { ToastModule } from 'primeng/toast';
+import { MessagesModule } from 'primeng/messages';
 
 @NgModule({
   declarations: [],
@@ -23,18 +25,16 @@ import { OverlayPanelModule } from 'primeng/overlaypanel';
     CardModule,
     ColorPickerModule,
     InputGroupModule,
-    InputGroupAddonModule,
     InputSwitchModule,
     InputTextModule,
     SelectButtonModule,
     ButtonModule,
-    SliderModule,
     IconFieldModule,
     InputIconModule,
     FileUploadModule,
     RadioButtonModule,
-    TooltipModule,
-    OverlayPanelModule
+    ToastModule,
+    MessagesModule
   ],
   providers: [
     MessageService

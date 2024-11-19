@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PrimengmModule } from './primengm/primengm.module';
 import { RxqrcodeModule } from './rxqrcode/rxqrcode.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
@@ -22,7 +22,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     RxqrcodeModule,
     FormsModule,
     BrowserAnimationsModule,
-    
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

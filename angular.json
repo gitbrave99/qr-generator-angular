@@ -24,6 +24,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "allowedCommonJsDependencies":[
+              "angularx-qrcode"
+            ],
             "outputPath": "dist/generatroqrng",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -52,7 +55,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumError": "1.2MB"
                 },
                 {
                   "type": "anyComponentStyle",
